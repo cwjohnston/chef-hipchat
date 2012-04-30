@@ -20,6 +20,7 @@ Attributes
 * `token` - authentication token for your HipChat account (required)
 * `message` - the message to speak. If a message is not specified, the name of the `hipchat_msg` resource is used.
 * `notify` - toggles whether or not users in the room should be notified by this message 
+* `color` - sets the color of the message in HipChat. Supported colors include: yellow, red, green, purple, or random.
 * `failure_ok` - toggles whether or not to catch the exception if an error is encountered connecting to HipChat (defaults to true)
 
 Usage examples
@@ -32,11 +33,18 @@ Usage examples
           token '0xdedbeef0xdedbeef0xdedbeef'
           message "I have some bad news... there was an error: #{some_error}"
           notify true
+          color 'red'
         end
 
 Change log
 ==========
+* 0.0.2 - Adding support for specifying message color
 * 0.0.1 - First public release
+
+Future
+======
+
+Consider using HTMLEntities or similar to encode messages before sending them.
 
 License and Author
 ==================

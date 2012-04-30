@@ -5,7 +5,8 @@ action :speak do
 
     client[@new_resource.room].send(@new_resource.nickname, 
                                     @new_resource.message, 
-                                    :notify => @new_resource.notify)
+                                    :notify => @new_resource.notify,
+                                    :color => @new_resource.color)
 
   rescue => e
       if @new_resource.failure_ok
