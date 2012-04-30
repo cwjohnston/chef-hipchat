@@ -12,16 +12,17 @@ Requirements
 ============
 
 * Authentication token for an existing HipChat account.
-* 'hipchat' gem (automatically installed by this cookbook's default recipe)
+* 'hipchat' gem (automatically installed by this cookbook's default recipe).
 
 Attributes
 ==========
-* `room` - the name of the room you would like to speak into (requied)
-* `token` - authentication token for your HipChat account (required)
+* `room` - the name of the room you would like to speak into (requied).
+* `token` - authentication token for your HipChat account (required).
+* `nickname` - the nickname to be used when speaking the message (required).
 * `message` - the message to speak. If a message is not specified, the name of the `hipchat_msg` resource is used.
-* `notify` - toggles whether or not users in the room should be notified by this message 
-* `color` - sets the color of the message in HipChat. Supported colors include: yellow, red, green, purple, or random.
-* `failure_ok` - toggles whether or not to catch the exception if an error is encountered connecting to HipChat (defaults to true)
+* `notify` - toggles whether or not users in the room should be notified by this message (defaults to false).
+* `color` - sets the color of the message in HipChat. Supported colors include: yellow, red, green, purple, or random (defaults to yellow).
+* `failure_ok` - toggles whether or not to catch the exception if an error is encountered connecting to HipChat (defaults to true).
 
 Usage examples
 ==============
@@ -29,9 +30,10 @@ Usage examples
         include_recipe 'hipchat'
 
         hipchat_msg 'bad news' do
-          room 'Important Stuff'
+          room 'The Pod Bay'
           token '0xdedbeef0xdedbeef0xdedbeef'
-          message "I have some bad news... there was an error: #{some_error}"
+          nickname 'HAL900'
+          message "Sorry Dave, I'm afraid I can't do that: #{some_error}"
           notify true
           color 'red'
         end
