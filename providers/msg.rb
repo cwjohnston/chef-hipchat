@@ -3,10 +3,10 @@ action :speak do
   begin
     client = HipChat::Client.new(@new_resource.token)
 
-    @new_resource.message ||= @new_resource.name
+    message = @new_resource.message || @new_resource.name
 
-    client[@new_resource.room].send(@new_resource.nickname, 
-                                    @new_resource.message, 
+    client[@new_resource.room].send(@new_resource.nickname,
+                                    message,
                                     :notify => @new_resource.notify,
                                     :color => @new_resource.color)
 
