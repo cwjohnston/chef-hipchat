@@ -44,6 +44,7 @@ Usage examples
 
 Change log
 ==========
+* 0.0.4 - A git mishap necessitated the release of this version. No changes to code.
 * 0.0.3 - notify now defaults to true, fixed using resource name as message body when no message is specified
 * 0.0.2 - Adding support for specifying message color
 * 0.0.1 - First public release
