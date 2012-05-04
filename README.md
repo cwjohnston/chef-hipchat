@@ -14,6 +14,11 @@ Requirements
 * Authentication token for an existing HipChat account.
 * 'hipchat' gem (automatically installed by this cookbook's default recipe).
 
+Actions
+=======
+* `speak` - do it (the default)
+* `nothing` - don't do it
+
 Attributes
 ==========
 * `room` - the name of the room you would like to speak into (requied).
