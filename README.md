@@ -1,26 +1,25 @@
-Description
-===========
+# chef-hipchat
+
+## Description
 
 This cookbook provides a `hipchat_msg` resource, making it easier for chef recipies to send messages to a chat room on Atlassian's HipChat service.
 
-Platform
-========
+## Platform
 
 Should work on any platform where Chef runs. Tested on Ubuntu.
 
-Requirements
-============
+## Requirements
 
 * Authentication token for an existing HipChat account.
 * 'hipchat' gem (automatically installed by this cookbook's default recipe).
 
-Actions
-=======
+## Actions
+
 * `speak` - do it (the default)
 * `nothing` - don't do it
 
-Attributes
-==========
+## Attributes
+
 * `room` - the name of the room you would like to speak into (requied).
 * `token` - authentication token for your HipChat account (required).
 * `nickname` - the nickname to be used when speaking the message (required).
@@ -29,8 +28,7 @@ Attributes
 * `color` - sets the color of the message in HipChat. Supported colors include: yellow, red, green, purple, or random (defaults to yellow).
 * `failure_ok` - toggles whether or not to catch the exception if an error is encountered connecting to HipChat (defaults to true).
 
-Usage examples
-==============
+## Usage example
 
         include_recipe 'hipchat'
 
@@ -42,21 +40,32 @@ Usage examples
           color 'red'
         end
 
-Change log
-==========
-* 0.1.0 - Now using chef_gem resource to install hipchat gem, instead of gem_package resource.
-* 0.0.4 - A git mishap necessitated the release of this version. No changes to code.
-* 0.0.3 - notify now defaults to true, fixed using resource name as message body when no message is specified
-* 0.0.2 - Adding support for specifying message color
-* 0.0.1 - First public release
+## Changes
 
-Future
-======
+### 0.2.0
+* Added test-kitchen. Export HIPCHAT_TEST_ROOM and HIPCHAT_TEST_TOKEN env vars when running test-kitchen
+* Explicity installing httparty ~> 0.11.0 due to json gem conflicts introduced in newer versions
+
+### 0.1.0
+* Now using chef_gem resource to install hipchat gem, instead of gem_package resource.
+
+### 0.0.4
+* A git mishap necessitated the release of this version. No changes to code.
+
+### 0.0.3
+* notify now defaults to true, fixed using resource name as message body when no message is specified
+
+### 0.0.2
+* Adding support for specifying message color
+
+### 0.0.1
+* First public release
+
+## Future
 
 Consider using HTMLEntities or similar to encode messages before sending them.
 
-License and Author
-==================
+## License and Author
 
 Author:: Cameron Johnston <cameron@rootdown.net>
 
