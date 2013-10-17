@@ -44,6 +44,7 @@ Usage examples
 
 Change log
 ==========
+* 0.1.0 - Now using chef_gem resource to install hipchat gem, instead of gem_package resource.
 * 0.0.4 - A git mishap necessitated the release of this version. No changes to code.
 * 0.0.3 - notify now defaults to true, fixed using resource name as message body when no message is specified
 * 0.0.2 - Adding support for specifying message color
