@@ -2,7 +2,7 @@
 
 ## Description
 
-This cookbook provides a `hipchat_msg` resource, making it easier for chef recipies to send messages to a chat room on Atlassian's HipChat service.
+This cookbook provides a `hipchat_msg` resource, making it easier for chef recipes to send messages to a chat room on Atlassian's HipChat service.
 
 ## Platform
 
