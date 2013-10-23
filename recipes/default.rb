@@ -18,7 +18,7 @@
 #
 
 chef_gem 'httparty' do
-  version '~> 0.11.0'
+  version node['hipchat']['httparty_version']
   action :nothing
 end.run_action(:install)
 
