@@ -23,5 +23,6 @@ chef_gem 'httparty' do
 end.run_action(:install)
 
 chef_gem 'hipchat' do
+  version node['hipchat']['hipchat_version']
   action :nothing
 end.run_action(:install)

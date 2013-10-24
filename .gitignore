@@ -11,3 +11,4 @@ Gemfile.lock
 /cookbooks
 .kitchen/
 .kitchen.local.yml
+test_vars
