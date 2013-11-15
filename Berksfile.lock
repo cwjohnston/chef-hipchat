@@ -1,2 +1,0 @@
-cookbook 'hipchat', :path => '/Users/cwj/chef/hipchat'
-cookbook 'hipchat-test', :path => './test/cookbooks/hipchat-test'
