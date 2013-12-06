@@ -39,9 +39,9 @@ end.run_action(:create)
 
 handler = node['hipchat']['handler']
 handler_options = {
-  :name => node['hipchat']['handler']['name'],
-  :notify_users => node['hipchat']['handler']['notify_users'],
-  :color => node['hipchat']['handler']['color']
+  :name => handler['name'],
+  :notify_users => handler['notify_users'],
+  :color => handler['color']
 }
 
 chef_handler 'HipChat::NotifyRoom' do
