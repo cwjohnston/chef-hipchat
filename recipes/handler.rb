@@ -38,10 +38,15 @@ cookbook_file handler_file do
 end.run_action(:create)
 
 handler = node['hipchat']['handler']
+handler_options = {
+  :name => node['hipchat']['handler']['name'],
+  :notify_users => node['hipchat']['handler']['notify_users'],
+  :color => node['hipchat']['handler']['color']
+}
 
 chef_handler 'HipChat::NotifyRoom' do
   source handler_file
   supports({:exception => true})
-  arguments [ handler['token'], handler['room'] ]
+  arguments [ handler['token'], handler['room'], handler_options ]
   action :nothing
 end.run_action(node['hipchat']['handler']['enabled'] ? :enable : :disable)
