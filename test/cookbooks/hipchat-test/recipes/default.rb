@@ -22,11 +22,20 @@ include_recipe 'hipchat::default'
 if node['hipchat_test']['room'].nil? or node['hipchat_test']['token'].nil?
   Chef::Application.fatal!('You must specify HIPCHAT_TEST_ROOM and HIPCHAT_TEST_TOKEN env vars before this test will run')
 else
-  hipchat_msg 'test message' do
+  hipchat_msg 'html test message' do
     room node['hipchat_test']['room']
     token node['hipchat_test']['token']
     nickname node['hipchat_test']['nickname']
-    message node['hipchat_test']['message']
+    message 'this is a html formatted message<br>with a line break tag'
     color node['hipchat_test']['color']
+  end
+
+  hipchat_msg 'text test message' do
+    room node['hipchat_test']['room']
+    token node['hipchat_test']['token']
+    nickname node['hipchat_test']['nickname']
+    message "this is a text formatted message\nwith a line ending"
+    color node['hipchat_test']['color']
+    format :text
   end
 end
