@@ -12,3 +12,4 @@ attribute :message, :kind_of => [ String, FalseClass ], :default => false
 attribute :failure_ok, :kind_of => [ TrueClass, FalseClass ], :default => true
 attribute :notify, :kind_of => [ TrueClass, FalseClass ], :default => true
 attribute :color, :kind_of => String, :default => 'yellow', :regex => /^(yellow|red|green|purple)$/
+attribute :format, :kind_of => Symbol, :default => :html, :equal_to => [ :html, :text ]
