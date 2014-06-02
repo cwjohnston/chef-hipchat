@@ -39,6 +39,7 @@ end.run_action(:create)
 
 handler = node['hipchat']['handler']
 handler_options = {
+  :server_url => handler['server'],
   :name => handler['name'],
   :notify_users => handler['notify_users'],
   :color => handler['color']

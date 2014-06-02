@@ -1,4 +1,5 @@
 # values are required for token and room attrs
+default['hipchat']['handler']['server'] = 'https://api.hipchat.com'
 default['hipchat']['handler']['token'] = nil
 default['hipchat']['handler']['room'] = nil
 default['hipchat']['handler']['enabled'] = false
