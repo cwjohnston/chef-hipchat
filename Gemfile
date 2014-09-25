@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'librarian-chef'
-gem 'test-kitchen', '~> 1.0.0.beta'
+gem 'test-kitchen', '~> 1.2'
 gem 'kitchen-vagrant'
 
 group :release do
