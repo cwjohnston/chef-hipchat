@@ -1,0 +1,4 @@
+site 'https://supermarket.getchef.com/api/v1'
+
+cookbook 'hipchat', :path => '.'
+cookbook 'hipchat-test', :path => './test/cookbooks/hipchat-test'
