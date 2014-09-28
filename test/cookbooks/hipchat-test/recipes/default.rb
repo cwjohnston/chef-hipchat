@@ -25,7 +25,8 @@ if node['hipchat_test']['room'].nil? or (node['hipchat_test']['v1_token'].nil? |
   )
 else
   %w( 1 2 ).each do |vnum|
-    hipchat_msg 'test message' do
+    hipchat_msg "test message api v#{vnum}" do
+      api_version "v#{vnum}"
       room node['hipchat_test']['room']
       token node['hipchat_test']["v#{vnum}_token"]
       nickname node['hipchat_test']['nickname']
