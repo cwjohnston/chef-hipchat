@@ -27,7 +27,9 @@ suites:
   attributes:
     hipchat_test:
       room: <%= ENV['HIPCHAT_TEST_ROOM'] %>
-      token: <%= ENV['HIPCHAT_TEST_TOKEN'] %>
+      v1_token: <%= ENV['HIPCHAT_TEST_V1_TOKEN'] %>
+      v2_token: <%= ENV['HIPCHAT_TEST_V2_TOKEN'] %>
+
 - name: handler
   run_list: ["recipe[hipchat-test::handler]"]
   attributes:
@@ -35,4 +37,4 @@ suites:
       handler:
         enabled: true
         room: <%= ENV['HIPCHAT_TEST_ROOM'] %>
-        token: <%= ENV['HIPCHAT_TEST_TOKEN'] %>
+        token: <%= ENV['HIPCHAT_TEST_V2_TOKEN'] %>

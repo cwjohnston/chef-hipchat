@@ -19,14 +19,18 @@
 
 include_recipe 'hipchat::default'
 
-if node['hipchat_test']['room'].nil? or node['hipchat_test']['token'].nil?
-  Chef::Application.fatal!('You must specify HIPCHAT_TEST_ROOM and HIPCHAT_TEST_TOKEN env vars before this test will run')
+if node['hipchat_test']['room'].nil? or (node['hipchat_test']['v1_token'].nil? || node['hipchat_test']['v2_token'].nil?)
+  Chef::Application.fatal!(
+    'You must specify HIPCHAT_TEST_ROOM, HIPCHAT_TEST_V1_TOKEN and HIPCHAT_TEST_V2_TOKEN env vars before this test will run'
+  )
 else
-  hipchat_msg 'test message' do
-    room node['hipchat_test']['room']
-    token node['hipchat_test']['token']
-    nickname node['hipchat_test']['nickname']
-    message node['hipchat_test']['message']
-    color node['hipchat_test']['color']
+  %w( 1 2 ).each do |vnum|
+    hipchat_msg 'test message' do
+      room node['hipchat_test']['room']
+      token node['hipchat_test']["v#{vnum}_token"]
+      nickname node['hipchat_test']['nickname']
+      message node['hipchat_test']['message']
+      color node['hipchat_test']['color']
+    end
   end
 end
