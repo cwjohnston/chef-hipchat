@@ -1,6 +1,6 @@
 .vagrant
 apt
-Berksfile.lock
+Cheffile.lock
 Gemfile.lock
 *~
 *#
@@ -12,3 +12,5 @@ Gemfile.lock
 .kitchen/
 .kitchen.local.yml
 test_vars
+.librarian/
+tmp/
