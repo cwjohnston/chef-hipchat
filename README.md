@@ -10,6 +10,7 @@ Should work on any platform where Chef runs. Tested on Ubuntu.
 
 ## Requirements
 
+* Chef version 11.10 or greater (JSON gem version conflicts)
 * Authentication token for an existing HipChat account.
 * 'hipchat' gem (automatically installed by this cookbook's default recipe).
 
