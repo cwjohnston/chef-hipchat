@@ -31,6 +31,7 @@ else
       nickname node['hipchat_test']['nickname']
       message node['hipchat_test']['message']
       color node['hipchat_test']['color']
+      failure_ok false
     end
   end
 end
