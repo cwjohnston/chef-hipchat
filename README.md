@@ -20,8 +20,9 @@ Should work on any platform where Chef runs. Tested on Ubuntu.
 
 ## Attributes
 
+* `api_version` - version of hipchat api to use. allowed values are 'v1' and 'v2' (defaults to 'v1').
 * `room` - the name of the room you would like to speak into (requied).
-* `token` - authentication token for your HipChat account (required).
+* `token` - authentication token for your HipChat account (required). Please note that auth tokens are tied to api versions (e.g. v1 tokens will not work with v2 api).
 * `nickname` - the nickname to be used when speaking the message (required).
 * `message` - the message to speak. If a message is not specified, the name of the `hipchat_msg` resource is used.
 * `notify` - toggles whether or not users in the room should be notified by this message (defaults to true).
@@ -29,18 +30,23 @@ Should work on any platform where Chef runs. Tested on Ubuntu.
 * `failure_ok` - toggles whether or not to catch the exception if an error is encountered connecting to HipChat (defaults to true).
 
 ## Usage example
+```
+include_recipe 'hipchat'
 
-        include_recipe 'hipchat'
-
-        hipchat_msg 'bad news' do
-          room 'The Pod Bay'
-          token '0xdedbeef0xdedbeef0xdedbeef'
-          nickname 'HAL9000'
-          message "Sorry Dave, I'm afraid I can't do that: #{some_error}"
-          color 'red'
-        end
-
+hipchat_msg 'bad news' do
+  room 'The Pod Bay'
+  token '0xdedbeef0xdedbeef0xdedbeef'
+  nickname 'HAL9000'
+  message "Sorry Dave, I'm afraid I can't do that: #{some_error}"
+  color 'red'
+end
+```
 ## Changes
+
+### 0.3.0
+
+* Support version 2 of HipChat's API. Version 1 API is still the default but expect this to change in a future release.
+* test-kitchen suites now expect HIPCHAT_TEST_V1_TOKEN and HIPCHAT_TEST_V2_TOKEN environment variables
 
 ### 0.2.0
 * Added test-kitchen. Export HIPCHAT_TEST_ROOM and HIPCHAT_TEST_TOKEN env vars when running test-kitchen
