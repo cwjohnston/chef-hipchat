@@ -24,13 +24,13 @@ if node['hipchat_test']['room'].nil? or (node['hipchat_test']['v1_token'].nil? |
     'You must specify HIPCHAT_TEST_ROOM, HIPCHAT_TEST_V1_TOKEN and HIPCHAT_TEST_V2_TOKEN env vars before this test will run'
   )
 else
-  %w( 1 2 ).each do |vnum|
-    hipchat_msg "test message api v#{vnum}" do
-      api_version "v#{vnum}"
+  %w( v1 v2 ).each do |version|
+    hipchat_msg "test message api #{version}" do
+      api_version version
       room node['hipchat_test']['room']
-      token node['hipchat_test']["v#{vnum}_token"]
+      token node['hipchat_test']["#{version}_token"]
       nickname node['hipchat_test']['nickname']
-      message node['hipchat_test']['message']
+      message "this is a test of hipchat api #{version}"
       color node['hipchat_test']['color']
       failure_ok false
     end
