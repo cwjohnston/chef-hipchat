@@ -5,6 +5,8 @@ end
 
 actions :speak
 
+attribute :api_version, :kind_of => String, :equal_to => ['v1', 'v2'], :default => 'v1'
+attribute :server, :kind_of => String, :default => 'https://api.hipchat.com'
 attribute :nickname, :kind_of => String, :required => true
 attribute :token, :kind_of => String, :required => true
 attribute :room, :kind_of => String, :required => true

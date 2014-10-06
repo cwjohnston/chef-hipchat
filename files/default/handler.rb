@@ -41,6 +41,7 @@ module HipChat
       @room_name = room_name
       @options = options
 
+      @options[:server_url] = 'https://api.hipchat.com' if @options[:server_url].nil?
       @options[:name] = 'Chef' if @options[:name].nil?
       @options[:notify_users] = false if @options[:notify_users].nil?
       @options[:color] = 'red' if @options[:color].nil?
@@ -49,7 +50,7 @@ module HipChat
     def report
       msg = "Failure on #{node.name}: #{run_status.formatted_exception}"
 
-      client = HipChat::Client.new(@api_token)
+      client = HipChat::Client.new(@api_token, :api_version => @options[:api_version], :server_url => @options[:server_url])
       client[@room_name].send(
         @options[:name],
         msg,

@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'berkshelf'
-gem 'test-kitchen', '~> 1.0.0.beta'
-gem 'kitchen-vagrant'
+gem 'librarian-chef'
+
+group :integration do
+  gem 'test-kitchen', '~> 1.2'
+  gem 'kitchen-vagrant'
+  gem 'kitchen-docker'
+end
+
+group :release do
+  gem 'rake'
+  gem 'emeril'
+end
