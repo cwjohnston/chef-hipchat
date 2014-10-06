@@ -30,11 +30,20 @@ suites:
       v1_token: <%= ENV['HIPCHAT_TEST_V1_TOKEN'] %>
       v2_token: <%= ENV['HIPCHAT_TEST_V2_TOKEN'] %>
 
-- name: handler
+- name: handler-v1
   run_list: ["recipe[hipchat-test::handler]"]
   attributes:
     hipchat:
       handler:
         enabled: true
+        room: <%= ENV['HIPCHAT_TEST_ROOM'] %>
+        token: <%= ENV['HIPCHAT_TEST_V1_TOKEN'] %>
+- name: handler-v2
+  run_list: ["recipe[hipchat-test::handler]"]
+  attributes:
+    hipchat:
+      handler:
+        enabled: true
+        api_version: v2
         room: <%= ENV['HIPCHAT_TEST_ROOM'] %>
         token: <%= ENV['HIPCHAT_TEST_V2_TOKEN'] %>
